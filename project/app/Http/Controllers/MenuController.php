@@ -22,7 +22,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view("menu.create");
+        // return view("menu.create");
     }
 
     /**
@@ -63,9 +63,9 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        Menu::store($request);
+        $menu->update($request->all());
 
-        return view("menu.update");
+        return redirect()->back()->with('success', 'Menu item updated!');
     }
 
     /**
@@ -73,8 +73,8 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        Menu::delete();
+        $menu->delete();
 
-        return view("item.destroy");
+        return redirect()->back()->with('success', 'Menu item deleted!');
     }
 }

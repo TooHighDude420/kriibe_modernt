@@ -32,5 +32,11 @@
                 <img class="h-full w-[50%]" src="{{ Storage::url('logo/mini_logo.png') }}" alt="logo">
             @endif
         </div>
+
+        @auth
+            <div>
+                <a href="{{ route('logout') }}">Logout</a>
+            </div>
+        @endauth
     </div>
 </nav>

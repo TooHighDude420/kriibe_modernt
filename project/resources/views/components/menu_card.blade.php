@@ -8,4 +8,18 @@
             <p>{{ $menu->price }}</p>
         </div>
     </a>
+    @auth
+        <div class="flex justify-between w-full">
+            <a href="{{ route('menu.edit', $menu->id) }}">Edit</a>
+            <form action="{{ route('menu.destroy', $menu->id) }}" method='POST'>
+                @csrf
+                @method('DELETE')
+
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+        </div>
+    @endauth
+    
 </div>
