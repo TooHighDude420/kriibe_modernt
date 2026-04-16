@@ -5,11 +5,12 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::resources([
-    "menu" => MenuController::class,
-]);
-
 Route::get('/', [HomeController::class, 'index'])->name("home");
+
+Route::get('/menu', [HomeController::class, 'index'])->name("menu.public");
+Route::middleware('auth')->group(function () {
+    Route::resource("menu", MenuController::class);
+});
 
 Route::get('/about', function () {
     return view('about');

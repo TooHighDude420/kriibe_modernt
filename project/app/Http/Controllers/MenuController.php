@@ -30,14 +30,16 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+
         $validation = $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
+            'imagepath' => 'required|string',
         ]);
-        
+                
         Menu::create($validation);
 
-        return view("menu.store");
+        return redirect()->back()->with('success', 'Menu item added!');
     }
 
     /**
