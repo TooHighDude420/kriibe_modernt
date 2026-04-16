@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
 
-Route::get('/menu', [HomeController::class, 'index'])->name("menu.public");
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 Route::middleware('auth')->group(function () {
-    Route::resource("menu", MenuController::class);
+    Route::resource("menu", MenuController::class)->except(['index', 'show']);
 });
 
 Route::get('/about', function () {

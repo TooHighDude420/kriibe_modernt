@@ -10,12 +10,7 @@
                     <img class="h-[80%] w-[80%]" src="{{ Storage::url('icons/home.svg') }}" alt="logo">
                 </div>
             </a>
-            @auth
-                <a href={{ url('menu.index') }} class="h-[90%] w-1/5 hover:bg-[#612507] rounded-lg {{ Route::is('menu.index') ? 'bg-[#612507]'  : '' }}" id="adm">
-            @endauth
-            @guest
-                <a href={{ route('menu.public') }} class="h-[90%] w-1/5 hover:bg-[#612507] rounded-lg {{ Route::is('menu.index') ? 'bg-[#612507]'  : '' }}" id="gst">    
-            @endguest
+            <a href={{ url('menu') }} class="h-[90%] w-1/5 hover:bg-[#612507] rounded-lg {{ Route::is('menu.index') ? 'bg-[#612507]'  : '' }}" id="adm">
                 <div class="h-full w-full flex justify-around items-center">
                     <img class="h-[80%] w-[80%]" src="{{ Storage::url('icons/menu.svg') }}" alt="logo">
                 </div>

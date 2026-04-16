@@ -10,7 +10,7 @@
             </div>
             <div class="w-full h-[80%] flex justify-around items-center">
                 @foreach ($preview as $prev)
-                <x-prev-card :menu="$prev" />
+                    <x-prev-card :menu="$prev" />
                 @endforeach
             </div>
         </div>
